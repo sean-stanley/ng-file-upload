@@ -152,7 +152,7 @@ ngFileUpload.service('Upload', ['$parse', '$timeout', '$compile', '$q', 'UploadE
     }
 
     var newFiles = files;
-    var prevFiles = ((ngModel && ngModel.$modelValue) || attr.$$ngfPrevFiles || []).slice(0);
+    var prevFiles = ((ngModel && ngModel.$modelValue && angular.isArray(ngModel.$modelValue) ) || attr.$$ngfPrevFiles || []).slice(0);
     var keepResult = handleKeep(files, prevFiles, attr, scope);
     files = keepResult.files;
     var dupFiles = keepResult.dupFiles;
